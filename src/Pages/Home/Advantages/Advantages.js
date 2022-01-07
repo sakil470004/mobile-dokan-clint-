@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Divider, Grid, Typography } from '@mui/material'
+import { Container,  Grid, Typography } from '@mui/material'
 
 import img1 from './../../../img/croma advantages/mxw_2048,f_auto.jpeg'
 import img2 from './../../../img/croma advantages/mxw_2048,f_auto (1).jpeg'
