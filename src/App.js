@@ -7,6 +7,9 @@ import {
 } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
 
+// color 1 #FFDA00
+
+
 function App() {
   return (
     <div className="App">

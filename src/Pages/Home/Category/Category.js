@@ -9,20 +9,20 @@ export default function Category() {
     return (
         <div>
             <Container>
-                <Typography sx={{ fontWeight: 600, m: {xs:0,sm:2,md:3},textAlign:'left' }} variant="h4" component="div" >
-                   Choose Your Type
+                <Typography sx={{ fontWeight: 600, m: {xs:1,sm:2,md:3},textAlign:'left' }} variant="h4" component="div" >
+                   Choose <span className='color1'> Your Type</span>
                 </Typography>
                 <Grid container spacing={2}>
-                    <Grid sx={{ borderRadius: 4,p:{xs:0,sm:1,md:4,lg:0} }} item xs={12} sm={6} lg={3} >
+                    <Grid sx={{ borderRadius: 4 }} item xs={12} sm={6} lg={3} >
                         <img style={{ borderRadius: 20 }} width='100%' alt='status' src={newPhone} />
                     </Grid>
-                    <Grid sx={{ borderRadius: 4,p:{xs:0,sm:1,md:4,lg:0} }} item xs={12} sm={6} lg={3} >
+                    <Grid sx={{ borderRadius: 4 }} item xs={12} sm={6} lg={3} >
                         <img style={{ borderRadius: 20 }} width='100%' alt='status' src={popularPhone} />
                     </Grid>
-                    <Grid sx={{ borderRadius: 4,p:{xs:0,sm:1,md:4,lg:0} }} item xs={12} sm={6} lg={3} >
+                    <Grid sx={{ borderRadius: 4 }} item xs={12} sm={6} lg={3} >
                         <img style={{ borderRadius: 20 }} width='100%' alt='status' src={hotDealsPhone} />
                     </Grid>
-                    <Grid sx={{ borderRadius: 4,p:{xs:0,sm:1,md:4,lg:0} }} item xs={12} sm={6} lg={3} >
+                    <Grid sx={{ borderRadius: 4 }} item xs={12} sm={6} lg={3} >
                         <img style={{ borderRadius: 20 }} width='100%' alt='status' src={fiveGPhone} />
                     </Grid>
                 </Grid>

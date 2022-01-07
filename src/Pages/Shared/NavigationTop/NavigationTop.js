@@ -16,7 +16,6 @@ import { NavLink } from 'react-router-dom';
 
 
 
-// color 1 #FFDA00
 
 export default function NavigationTop() {
     const [anchorEl, setAnchorEl] = React.useState(null);

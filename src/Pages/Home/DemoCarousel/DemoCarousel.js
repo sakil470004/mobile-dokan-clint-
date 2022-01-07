@@ -14,7 +14,7 @@ export default function DemoCarousel() {
         <Container >
 
             <Carousel autoPlay emulateTouch={true} infiniteLoop={true}
-                showThumbs={false} showIndicators={false}
+                showThumbs={false} showIndicators={false} autoFocus={true}
             >
                 <div className='carouselBannerImage'>
                     <img alt='banner' src={img1} />
