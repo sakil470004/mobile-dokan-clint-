@@ -2,14 +2,14 @@ import { Container } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import './Footer.css';
-
+import logo from './../../../img/croma_logo.png'
 
 const Footer = () => {
 
 
     return (
         <Container>
-            <Box sx={{ borderRadius: 3, background: 'linear-gradient(to top, #Ef827D 0%,#48a7a3 100%)' }}>
+            <Box sx={{ borderRadius: 3, background: 'linear-gradient(to top, #Ef827D 0%,#48a7a3 100%)',mt:3 }}>
                 {/* this is for testing purpose */}
                 {/* <div class="dummy_page">
                 Mobile responsive footer
@@ -19,8 +19,9 @@ const Footer = () => {
                 <div className="footer">
                     <div className="contain">
                         <div className="col">
-                            <h1>Company</h1>
+                         
                             <ul>
+                            <li><img width='120px' src={logo} alt='logo'/></li>
                                 <li>About</li>
                                 <li>Mission</li>
                                 <li>Services</li>
@@ -48,7 +49,7 @@ const Footer = () => {
                                 <li>Get in touch</li>
                             </ul>
                         </div>
-                        <div className="col">
+                        {/* <div className="col">
                             <h1>Resources</h1>
                             <ul>
                                 <li>Webmail</li>
@@ -58,7 +59,7 @@ const Footer = () => {
                                 <li>Web templates</li>
                                 <li>Email templates</li>
                             </ul>
-                        </div>
+                        </div> */}
                         <div className="col">
                             <h1>Support</h1>
                             <ul>
