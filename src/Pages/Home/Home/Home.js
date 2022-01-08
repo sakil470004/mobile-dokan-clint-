@@ -6,6 +6,7 @@ import DemoCarousel from './../DemoCarousel/DemoCarousel'
 import BuyDecision from './../BuyDecision/BuyDecision'
 import Footer from '../../Shared/Footer/Footer'
 import Products from '../Products/Products'
+import CustomerReview from '../CustomerReview/CustomerReview'
 export default function Home() {
     // ["new", "popular","hotDeals","5gSmartPhone"]
     // const mobiles = [
@@ -139,6 +140,7 @@ export default function Home() {
             <Advantages />
             <BuyDecision />
             <Products/>
+            <CustomerReview/>
             <Footer />
         </div>
     )
