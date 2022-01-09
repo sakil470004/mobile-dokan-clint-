@@ -11,8 +11,8 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import logo from './../../../img/croma_logo.png'
 import { Button, Container } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-// import useAuth from '../../../hooks/useAuth';
-// import { HashLink } from 'react-router-hash-link';
+import useAuth from '../../../hooks/useAuth';
+import { HashLink } from 'react-router-hash-link';
 
 
 
@@ -78,14 +78,14 @@ export default function NavigationTop() {
             onClose={handleMobileMenuClose}
         >
             <MenuItem>
-                <NavLink smooth to='/home#serviceWeProvide'>
-                    Service
-                </NavLink>
+                <HashLink smooth={true} to='/home#products'>
+                    Products
+                </HashLink>
             </MenuItem>
             <MenuItem>
-                <NavLink smooth to='/home#reviewWeGot'>
+                <HashLink smooth={true} to='/home#reviewWeGot'>
                     Review
-                </NavLink>
+                </HashLink>
             </MenuItem>
             <MenuItem>
                 <NavLink to='/dashboard'>
@@ -96,7 +96,7 @@ export default function NavigationTop() {
         </Menu>
     );
 
-    // const { user, logout } = useAuth();
+    const { user, logout } = useAuth();
 
     return (
         <div >
@@ -117,33 +117,32 @@ export default function NavigationTop() {
                                 </NavLink>
 
 
-                                <NavLink smooth style={{ color: 'black', textDecoration: 'none' }} to='/home#serviceWeProvide'>
-                                    <Button color="inherit"  >Services</Button>
+                                <NavLink smooth={true} style={{ color: 'black', textDecoration: 'none' }} to='/home#products'>
+                                    <Button color="inherit"  >Products</Button>
                                 </NavLink>
 
-                                <NavLink smooth
+                                <HashLink smooth={true}
 
                                     style={{ color: 'black', textDecoration: 'none' }} to='/home#reviewWeGot'>
                                     <Button color="inherit"  >Review</Button>
-                                </NavLink>
+                                </HashLink>
                                 <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/dashboard'>
                                     <Button color="inherit"  >Dashboard</Button>
                                 </NavLink>
 
-                                {/* {!user?.displayName  */}
-                                && <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' }} to='/login'>
-                                    <Button color="inherit"  >Login</Button>
-                                </NavLink>
-                                {/* } */}
+                                {!user?.displayName
+                                    && <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' }} to='/login'>
+                                        <Button color="inherit"  >Login</Button>
+                                    </NavLink>
+                                }
 
-                                {/* {user?.displayName && */}
-                                <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' }} to='/login'>
-                                    <Button
-
-                                        // onClick={logout}
-                                        color="inherit"  >Logout</Button>
-                                </NavLink>
-                                {/* } */}
+                                {user?.displayName &&
+                                    <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' }} to='/login'>
+                                        <Button
+                                            onClick={logout}
+                                            color="inherit"  >Logout</Button>
+                                    </NavLink>
+                                }
                             </Box>
 
                             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

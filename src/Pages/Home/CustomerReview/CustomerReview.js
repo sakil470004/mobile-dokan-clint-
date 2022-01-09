@@ -44,8 +44,8 @@ export default function CustomerReview({
             <Box sx={{ flexGrow: 1, my: 5 }}>
                 <Container>
 
-                    <Typography sx={{ fontWeight: 600, m: 2,textAlign:'left'}} variant="h4" component="div" >
-                        Review We <span className='color1'> Got Form Our Customer</span>
+                    <Typography sx={{ fontWeight: 600, m: 2, textAlign: 'left' }} variant="h4" component="div" >
+                        Review <span className='color1'> We Got</span>
                     </Typography>
                     <Grid container spacing={{ xs: 2, md: 3 }}
                         style={{ maxHeight: 400, overflowY: 'auto' }}

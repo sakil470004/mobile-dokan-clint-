@@ -138,7 +138,7 @@ export default function Products() {
 
     return (
 
-        <div>
+        <div id='products'>
             <Container>
                 <Typography sx={{ fontWeight: 600, m: { xs: 1, sm: 2, md: 3 }, textAlign: 'left' }} variant="h4" component="div" >
                     Choose <span className='color1'> Your Phone</span>

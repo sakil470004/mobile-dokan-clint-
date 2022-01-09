@@ -9,6 +9,9 @@ import Home from './Pages/Home/Home/Home';
 import BuyGuide from './Pages/BuyGuide/BuyGuide';
 import BuyGuideFromExpert from './Pages/BuyGuideFromExpert/BuyGuideFromExpert'
 import NavigationTop from './Pages/Shared/NavigationTop/NavigationTop';
+import Login from './Pages/Login/Login/Login'; 
+import AuthProvider from './context/AuthProvider/AuthProvider';
+
 
 
 // color 1 #FFDA00
@@ -17,25 +20,29 @@ import NavigationTop from './Pages/Shared/NavigationTop/NavigationTop';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Switch >
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/buyGuide">
-            <NavigationTop />
-            <BuyGuide />
-          </Route>
-          <Route path="/buyGuideFromExpert">
-            <NavigationTop />
-            <BuyGuideFromExpert />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-
+      <AuthProvider>
+        <BrowserRouter>
+          <Switch >
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/buyGuide">
+              <NavigationTop />
+              <BuyGuide />
+            </Route>
+            <Route path="/buyGuideFromExpert">
+              <NavigationTop />
+              <BuyGuideFromExpert />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
