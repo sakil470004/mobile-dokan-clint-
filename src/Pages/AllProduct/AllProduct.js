@@ -1,10 +1,10 @@
-import { Button, Container, Grid, Typography } from '@mui/material'
+import {  Container, Grid, Typography } from '@mui/material'
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import Product from '../Product/Product'
+import Product from '../Home/Product/Product';
+import NavigationTop from '../Shared/NavigationTop/NavigationTop';
 
-export default function Products() {
+export default function AllProduct() {
     const [mobiles, setMobiles] = useState([]);
 
     useEffect(() => {
@@ -52,11 +52,12 @@ export default function Products() {
     return (
 
         <div id='products'>
+            <NavigationTop />
             <Container>
-                <Typography sx={{ fontWeight: 600, m: { xs: 1, sm: 2, md: 3 }, textAlign: 'left' }} variant="h4" component="div" >
-                    Choose <span className='color1'> Your Phone</span>
+                <Typography sx={{ fontWeight: 600, m: { xs: 1, sm: 2, md: 3 } }} variant="h4" component="div" >
+                    Get's <span className='color1'> Yours One</span>
                 </Typography>
-                <Grid container spacing={4} style={{marginBottom:'10px'}}>
+                <Grid container spacing={4}>
 
                     {mobiles.map(mobile =>
 
@@ -68,17 +69,14 @@ export default function Products() {
 
                             />
                         </Grid>
-
                     )
-
                     }
 
 
 
 
                 </Grid>
-                <NavLink
-                    style={{ color: 'black', textDecoration: 'none' }} to='/allProduct'><Button style={{ backgroundColor: '#FFDA00',borderRadius:'10px' }} className='color1' color='inherit'>Show More</Button></NavLink>
+
             </Container>
         </div>
 

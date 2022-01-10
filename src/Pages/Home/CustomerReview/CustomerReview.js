@@ -1,43 +1,23 @@
 import { Box, Container, Grid, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Review from '../Review/Review'
 
 export default function CustomerReview({
     //  comments, setComments, isCommentChange 
 }) {
+    const [reviews, setReviews] = useState([])
 
 
 
-    // useEffect(() => {
-    //     fetch('https://jerins-parlour-server.herokuapp.com/comment')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setComments(data);
-    //         })
-    // }, [isCommentChange, setComments]);
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data)
+            })
+    },  []);
 
-    const reviews = [
-        {
-            'name': 'Mynul',
-            'id': 1,
-            'message': 'hoooooooooooo'
-        },
-        {
-            'name': 'sakil',
-            'id': 1,
-            'message': 'hoooooooooooo'
-        },
-        {
-            'name': 'Nayeem',
-            'id': 1,
-            'message': 'hoooooooooooo'
-        },
-        {
-            'name': 'Tareq',
-            'id': 1,
-            'message': 'hoooooooooooo'
-        }
-    ]
+
 
     return (
         <div id='reviewWeGot'>

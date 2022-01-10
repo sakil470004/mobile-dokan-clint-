@@ -117,9 +117,9 @@ export default function NavigationTop() {
                                 </NavLink>
 
 
-                                <NavLink smooth={true} style={{ color: 'black', textDecoration: 'none' }} to='/home#products'>
+                                <HashLink smooth={true} style={{ color: 'black', textDecoration: 'none' }} to='/home#products'>
                                     <Button color="inherit"  >Products</Button>
-                                </NavLink>
+                                </HashLink>
 
                                 <HashLink smooth={true}
 
@@ -163,7 +163,7 @@ export default function NavigationTop() {
                     </AppBar>
                 </Box>
             </Container>
-        </div >
+        </div>
 
     );
 }
