@@ -26,6 +26,7 @@ import AddMobile from './AddService/AddMobile';
 import OrderList from './OrderLIst/OrderLIst';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
+import SendReview from './SendReview/SendReview';
 
 const drawerWidth = 150;
 
@@ -57,12 +58,13 @@ function Dashboard(props) {
             <Divider />
             <Box sx={{ textAlign: 'left', ml: 2, textDecoration: 'none' }}>
                 <Link to='/allproduct' style={{ textDecoration: 'none' }}><Button color="inherit">Products</Button></Link>
+                <Link to={`${url}/sendReview`} style={{ textDecoration: 'none' }}><Button color="inherit">Send Review</Button></Link>
                 <br />
                 <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('My Order')}>My Order</Button></Link>
                 {admin && <Box>
                     <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Order List')} >Order List</Button></Link>
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Make Admin')}>Make Admin</Button></Link>
-                    <Link to={`${url}/addService`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Add Mobile')}>Add Mobile</Button></Link>
+                    <Link to={`${url}/addProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Add Mobile')}>Add Mobile</Button></Link>
                 </Box>}
             </Box>
 
@@ -140,6 +142,9 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         <DashboardHome />
                     </Route>
+                    <Route path={`${path}/sendReview`}>
+                        <SendReview />
+                    </Route>
 
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin />
@@ -147,7 +152,7 @@ function Dashboard(props) {
                     <AdminRoute path={`${path}/orderList`}>
                         <OrderList />
                     </AdminRoute>
-                    <AdminRoute path={`${path}/addService`}>
+                    <AdminRoute path={`${path}/addProduct`}>
                         <AddMobile />
                     </AdminRoute>
                 </Switch>

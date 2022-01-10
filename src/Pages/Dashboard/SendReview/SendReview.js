@@ -1,8 +1,10 @@
 import { Button, Container, TextareaAutosize, TextField, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react'
+import useAuth from '../../../hooks/useAuth';
 
-export default function SendReview({ isCommentChange, setIsCommentChange }) {
+export default function SendReview( ) {
     const [review, setReview] = useState({});
+    const {user}=useAuth()
     const form = useRef(null)
 
     const handleOnBlur = (e) => {
@@ -15,21 +17,20 @@ export default function SendReview({ isCommentChange, setIsCommentChange }) {
     }
 
     const handleAddReview = (e) => {
-
+        const newInfo = { ...review ,name:user.displayName};
         // send data to the server
-        fetch('https://jerins-parlour-server.herokuapp.com/comment', {
+        fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify(newInfo)
 
         })
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
                     alert('Review Added')
-                    setIsCommentChange(!isCommentChange)
                     form.current.reset();
                 }
             })
@@ -37,13 +38,15 @@ export default function SendReview({ isCommentChange, setIsCommentChange }) {
     }
 
     return (
-        <div style={{ backgroundColor: '#fff8f5', paddingTop: '20px' }}>
+        <div style={{ paddingTop: '20px' }}>
             <Container>
                 <Typography variant="h4" component="div"
-                    sx={{ my: 5 }}
+                    sx={{ my: 2 }}
+                 
                 >
 
                     Send Review From Here
+                    
                 </Typography>
                 <form
                     onSubmit={handleAddReview}
@@ -52,10 +55,11 @@ export default function SendReview({ isCommentChange, setIsCommentChange }) {
                     <TextField
                         required
                         sx={{ width: '50%', m: 1 }}
-
-                        label="Your Name"
+                        
+                        label="Give Rate out of 10"
                         variant="standard"
-                        name='name'
+                        name='rate'
+                        type='number'
                         onBlur={handleOnBlur}
                     />
 
