@@ -36,7 +36,7 @@ export default function Product(props) {
             />
             <CardContent >
                 <Typography variant="h5" component="div" style={{ color: '#EF827D' }}>
-                    {id}  {first_name}
+             {first_name}
                 </Typography>
                 <Typography variant="h6" component="div" style={{ color: '#48A7A3' }}>
                     $  {price}

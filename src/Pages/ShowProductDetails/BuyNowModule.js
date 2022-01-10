@@ -20,11 +20,11 @@ const style = {
     p: 4,
 };
 
-export default function BuyNowModule({ open, handleClose, first_name, price }) {
+export default function BuyNowModule({ open, handleClose, first_name, price, img }) {
 
 
     const { user } = useAuth()
-    const initialInfo = { userName: user.displayName, email: user.email, phone: '' };
+    const initialInfo = { userName: user.displayName, email: user.email, phone: '', action: 'pending' };
     const [userInfo, setUserInfo] = React.useState(initialInfo);
 
 
@@ -41,34 +41,36 @@ export default function BuyNowModule({ open, handleClose, first_name, price }) {
     const handleBookingSubmit = (e) => {
         // alert('booking')
         // collect Data from from
-        const appointment = {
+        const placeOrder = {
             ...userInfo,
             mobileName: first_name,
+            img:img
         }
         // send data to the server
-        console.log(appointment)
-        // fetch('https://damp-island-23434.herokuapp.com/appointments', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(appointment)
+        // console.log(placeOrder)
+        fetch('http://localhost:5000/carts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(placeOrder)
 
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.insertedId) {
-        //             // setBookingSuccess(true);
-        //             handleClose()
-        //         }
-        //     })
-        // console.log(appointment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    // setBookingSuccess(true);
+                    handleClose()
+                    alert('Your product Added')
+                }
+            })
+        // console.log(placeOrder)
         e.preventDefault()
     }
 
     return (
         <div>
-            {/* <Button onClick={handleOpen}>Open modal</Button> */}
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"

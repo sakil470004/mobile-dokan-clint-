@@ -62,7 +62,8 @@ export default function ShowProductDetails() {
                                 color="inherit"
                                 sx={{ '&:hover': { background: '#FFDA00' } }}
                             >Buy Now</Button>
-                            <BuyNowModule open={open} handleClose={handleClose} first_name={first_name}  price={price}/>
+                            {/* go to module now and send it server */}
+                            <BuyNowModule open={open} handleClose={handleClose} first_name={first_name}  price={price} img={img}/>
  
                         </Box>
                     </Grid>

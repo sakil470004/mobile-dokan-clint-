@@ -14,6 +14,7 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import AllProduct from './Pages/AllProduct/AllProduct';
 import ShowProductDetails from './Pages/ShowProductDetails/ShowProductDetails';
 import PrivateRoute from './Pages/Login/Firebase/PrivateRoute'
+import Dashboard from './Pages/Dashboard/DashBoard';
 
 
 
@@ -40,6 +41,9 @@ function App() {
             </Route>
             <PrivateRoute path="/products/:productId">
               <ShowProductDetails />
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
             </PrivateRoute>
             <Route path="/buyGuide">
               <NavigationTop />
