@@ -18,7 +18,7 @@ export default function AddMobile() {
     const handleAddService = (e) => {
         // console.log(product)
         // send data to the server
-        fetch('http://localhost:5000/product', {
+        fetch('https://mobile-dokan-server.herokuapp.com/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

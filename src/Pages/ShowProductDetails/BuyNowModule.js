@@ -48,7 +48,7 @@ export default function BuyNowModule({ open, handleClose, first_name, price, img
         }
         // send data to the server
         // console.log(placeOrder)
-        fetch('http://localhost:5000/carts', {
+        fetch('https://mobile-dokan-server.herokuapp.com/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
