@@ -28,9 +28,11 @@ export default function Product(props) {
 
                 }
             }}>
+            
             <CardMedia
+                
                 component="img"
-                style={{ width: '100%', margin: '0 auto' }}
+                style={{ width: '100%',maxWidth:'260px',maxHeight:'260px', margin: '0 auto' }}
                 image={img}
                 alt="Paella dish"
             />

@@ -9,7 +9,7 @@ const Footer = () => {
 
     return (
         <Container>
-            <Box sx={{ borderRadius: 3, background: 'linear-gradient(to top, #Ef827D 0%,#48a7a3 100%)',mt:3 }}>
+            <Box sx={{ borderRadius: 2, background: 'linear-gradient(to top, #Ef827D 0%,#48a7a3 100%)',mt:3 }}>
                 {/* this is for testing purpose */}
                 {/* <div class="dummy_page">
                 Mobile responsive footer

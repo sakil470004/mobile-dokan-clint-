@@ -10,43 +10,14 @@ export default function Products() {
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
-            .then(data => setMobiles(data))
+            .then(data => {
+                data=data.slice(0,8);
+                setMobiles(data)
+
+            })
 
     }, [])
 
-    // const mobiles = [
-    //     {
-    //         id: 1,
-    //         first_name: "Samsung Galaxy A51",
-    //         cup: "Exynos Exynos 9611",
-    //         ram: 6,
-    //         rom: 4,
-    //         battery: 4000,
-    //         brand: 'samsung',
-    //         status: ["new", "popular", "hotDeals", "5gSmartPhone"],
-    //         frontCamera: 32,
-    //         rearCamera: 48,
-    //         Fingerprint: 1,
-    //         faceUnlock: 0,
-    //         img: 'https://i.ibb.co/SnsLfcJ/mxw-2048-f-auto.png'
-    //         , price: 27000
-    //     },
-    //     {
-    //         id: 2,
-    //         first_name: "Samsung Galaxy A51",
-    //         cup: "Exynos Exynos 9611",
-    //         ram: 6,
-    //         rom: 4,
-    //         battery: 4000,
-    //         brand: 'samsung',
-    //         status: ["new", "popular", "hotDeals", "5gSmartPhone"],
-    //         frontCamera: 32,
-    //         rearCamera: 48,
-    //         Fingerprint: 1,
-    //         faceUnlock: 0,
-    //         img: 'https://i.ibb.co/SnsLfcJ/mxw-2048-f-auto.png'
-    //         , price: 27000
-    //     },
 
 
     return (
@@ -56,7 +27,7 @@ export default function Products() {
                 <Typography sx={{ fontWeight: 600, m: { xs: 1, sm: 2, md: 3 }, textAlign: 'left' }} variant="h4" component="div" >
                     Choose <span className='color1'> Your Phone</span>
                 </Typography>
-                <Grid container spacing={4} style={{marginBottom:'10px'}}>
+                <Grid container spacing={4} style={{ marginBottom: '10px' }}>
 
                     {mobiles.map(mobile =>
 
@@ -78,7 +49,7 @@ export default function Products() {
 
                 </Grid>
                 <NavLink
-                    style={{ color: 'black', textDecoration: 'none' }} to='/allProduct'><Button style={{ backgroundColor: '#FFDA00',borderRadius:'10px' }} className='color1' color='inherit'>Show More</Button></NavLink>
+                    style={{ color: 'black', textDecoration: 'none' }} to='/allProduct'><Button style={{ backgroundColor: '#FFDA00', borderRadius: '10px' }} className='color1' color='inherit'>Show More</Button></NavLink>
             </Container>
         </div>
 

@@ -12,7 +12,7 @@ import BuyNowModule from './BuyNowModule';
 export default function ShowProductDetails() {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
-    const { img, brand, first_name, frontCamera, rearCamera, price, battery, ram, rom } = product;
+    const { img, brand, first_name, frontCamera, rearCamera, price, battery, ram, rom ,cup} = product;
 
     // model 
     const [open, setOpen] = React.useState(false);
@@ -85,7 +85,7 @@ export default function ShowProductDetails() {
                                 Front Camera
                             </Grid>
                             <Grid item xs={6} sx={{ textAlign: 'right' }}>
-                                {frontCamera}
+                                {frontCamera} MP
                             </Grid>
                         </Grid>
                         <Divider />
@@ -94,7 +94,7 @@ export default function ShowProductDetails() {
                                 Rear Camera
                             </Grid>
                             <Grid item xs={6} sx={{ textAlign: 'right' }}>
-                                {rearCamera}
+                                {rearCamera} MP
                             </Grid>
                         </Grid>
                         <Divider />
@@ -134,6 +134,14 @@ export default function ShowProductDetails() {
                             </Grid>
                         </Grid>
                         <Divider />
+                        <Grid container sx={{ fontSize: '20px', p: 3 }} spacing={2}>
+                            <Grid item xs={6} sx={{ textAlign: 'left' }}>
+                                Processor
+                            </Grid>
+                            <Grid item xs={6} sx={{ textAlign: 'right' }}>
+                                {cup}
+                            </Grid>
+                        </Grid>
 
                     </Container>
                 </Box>
