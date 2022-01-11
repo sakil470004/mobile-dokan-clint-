@@ -1,5 +1,5 @@
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken } from "firebase/auth";
+import { getAuth,  onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup,getIdToken } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 // initialize firebase app
@@ -84,6 +84,7 @@ const useFirebase = () => {
 
     // observer user state//for all the tab
     useEffect(() => {
+        setIsLoading(true);
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 // const uid = user.uid;
@@ -101,11 +102,13 @@ const useFirebase = () => {
 
     // observe user admin or not
     useEffect(() => {
+        setIsLoading(true)
         fetch(`https://mobile-dokan-server.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
                 setAdmin(data.isAdmin)
+                setIsLoading(false);
             })
     }, [user.email])
 
