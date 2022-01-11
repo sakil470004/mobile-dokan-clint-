@@ -13,14 +13,12 @@ import ButtonGroupCustom from './ButtonGroupCustom';
 export default function OrderList() {
     const { user } = useAuth();
     const [carts, setCarts] = useState([]);
-    // const [dataObserver,setDataObserver]=useState(false)
 
     useEffect(() => {
         fetch('https://mobile-dokan-server.herokuapp.com/carts')
             .then(res => res.json())
             .then(data => {
                 setCarts(data)
-                // console.log(data)
             });
     }, [user.email])
     return (
@@ -45,18 +43,16 @@ export default function OrderList() {
                             >
                                 <TableCell component="th" scope="row">
                                     {row.userName
-}
+                                    }
                                 </TableCell>
                                 <TableCell component="th" scope="row">
                                     {row.email}
                                 </TableCell>
                                 <TableCell align="right">{row.mobileName}</TableCell>
                                 <TableCell align="right">
-                                   
-                                    <ButtonGroupCustom action={row.action} 
+
+                                    <ButtonGroupCustom action={row.action}
                                         id={row._id}
-                                        // dataObserver={dataObserver}
-                                        // setDataObserver={setDataObserver}
                                     />
                                 </TableCell>
 

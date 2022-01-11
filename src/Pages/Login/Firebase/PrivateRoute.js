@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 
 export default function PrivateRoute({ children, ...rest }) {
     const { user, isLoading } = useAuth();
-    if (isLoading ) {
+    if (isLoading) {
         return <CircularProgress />
     }
 
@@ -22,14 +22,8 @@ export default function PrivateRoute({ children, ...rest }) {
                             pathname: '/login',
                             state: { from: location }
                         }}
-
                     />
-                )
-
-            }
-
-
+                )}
         />
     )
-
 }

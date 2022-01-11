@@ -11,7 +11,7 @@ export default function Products() {
         fetch('https://mobile-dokan-server.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
-                data=data.slice(0,8);
+                data = data.slice(0, 8);
                 setMobiles(data)
 
             })
@@ -39,14 +39,7 @@ export default function Products() {
 
                             />
                         </Grid>
-
-                    )
-
-                    }
-
-
-
-
+                    )}
                 </Grid>
                 <NavLink
                     style={{ color: 'black', textDecoration: 'none' }} to='/allProduct'><Button style={{ backgroundColor: '#FFDA00', borderRadius: '10px' }} className='color1' color='inherit'>Show More</Button></NavLink>

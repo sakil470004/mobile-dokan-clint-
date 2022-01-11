@@ -11,8 +11,6 @@ export default function Review(props) {
             <CardContent>
                 <Typography variant="h5" component="div">
                     {name}
-
-
                     <Rating name="half-rating-read" value={parseInt(rate) / 2}
                         precision={0.5} readOnly />
                 </Typography>
