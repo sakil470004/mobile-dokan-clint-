@@ -1,18 +1,38 @@
-import { Alert, Button, TextField } from '@mui/material';
+import { Alert, Button, Snackbar, TextField } from '@mui/material';
 import React, { useState } from 'react'
 
 
 export default function MakeAdmin() {
     const [email, setEmail] = useState('');
-    const [success, setSuccess] = useState(false)
+
     // const { token } = useAuth();
+
+    // snackbar code
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    // end of snackbar code
+
+
+
 
     const handleOnBlur = e => {
         setEmail(e.target.value)
         // console.log(e)
     }
     const handleAdminSubmit = e => {
-// need lowerCase for server understand
+        // need lowerCase for server understand
         const user = { email: email.toLocaleLowerCase() }
         fetch('https://mobile-dokan-server.herokuapp.com/users/admin', {
             method: 'PUT',
@@ -25,19 +45,15 @@ export default function MakeAdmin() {
             .then(data => {
                 // console.log(data);
                 if (data.modifiedCount) {
-                    alert('created Successfully')
-                    setSuccess(true)
+                    handleClick()
                 } else {
                     alert('something wrong')
-                    setSuccess(false)
-
                 }
                 // empty input field
                 // for name field need must and here name is email  
                 e.target.email.value = ''
                 setEmail('')
             })
-
 
         e.preventDefault();
     }
@@ -58,10 +74,17 @@ export default function MakeAdmin() {
 
                     onBlur={handleOnBlur}
                 />
-                <Button size='small' type='submit' variant='contained' sx={{ backgroundColor: '#FFDA00',color:'black', borderRadius: '15px', m: 2 }}>Make Admin</Button>
+                <Button size='small' type='submit' variant='contained' sx={{ backgroundColor: '#FFDA00', color: 'black', borderRadius: '15px', m: 2 }}>Make Admin</Button>
             </form>
-            {success && <Alert severity='success'>Made Admin Successfully</Alert>}
-            {/* {!success && <Alert severity='error'>Problem occurred Making admin</Alert>} */}
+
+            {/* snackbar code */}
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Admin Make successfully
+                </Alert>
+            </Snackbar>
+            {/* end of snackbar code */}
+
         </div>
     )
 }

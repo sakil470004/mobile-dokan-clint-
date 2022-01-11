@@ -1,11 +1,27 @@
-import { Button, Container, TextareaAutosize, TextField, Typography } from '@mui/material'
+import { Alert, Button, Container, Snackbar, TextareaAutosize, TextField, Typography } from '@mui/material'
 import React, { useRef, useState } from 'react'
 import useAuth from '../../../hooks/useAuth';
 
-export default function SendReview( ) {
+export default function SendReview() {
     const [review, setReview] = useState({});
-    const {user}=useAuth()
+    const { user } = useAuth()
     const form = useRef(null)
+
+    // snackbar code
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+    // end of snackbar code
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -17,7 +33,7 @@ export default function SendReview( ) {
     }
 
     const handleAddReview = (e) => {
-        const newInfo = { ...review ,name:user.displayName};
+        const newInfo = { ...review, name: user.displayName };
         // send data to the server
         fetch('https://mobile-dokan-server.herokuapp.com/review', {
             method: 'POST',
@@ -30,7 +46,8 @@ export default function SendReview( ) {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Review Added')
+                    // alert('Review Added')
+                    handleClick()
                     form.current.reset();
                 }
             })
@@ -42,11 +59,11 @@ export default function SendReview( ) {
             <Container>
                 <Typography variant="h4" component="div"
                     sx={{ my: 2 }}
-                 
+
                 >
 
                     Send Review From Here
-                    
+
                 </Typography>
                 <form
                     onSubmit={handleAddReview}
@@ -55,7 +72,7 @@ export default function SendReview( ) {
                     <TextField
                         required
                         sx={{ width: '50%', m: 1 }}
-                        
+
                         label="Give Rate out of 10"
                         variant="standard"
                         name='rate'
@@ -74,6 +91,13 @@ export default function SendReview( ) {
                     />
                     <Button type='submit' variant='outline' sx={{ width: '50%', my: 3 }}>Submit</Button>
                 </form>
+                {/* snackbar code */}
+                <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        Review Added
+                    </Alert>
+                </Snackbar>
+                {/* end of snackbar code */}
             </Container>
         </div>
     )

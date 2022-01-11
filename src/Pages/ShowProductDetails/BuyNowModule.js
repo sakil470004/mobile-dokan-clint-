@@ -6,7 +6,7 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import useAuth from '../../hooks/useAuth';
-import { TextField } from '@mui/material';
+import { Alert, Snackbar, TextField } from '@mui/material';
 
 const style = {
     position: 'absolute',
@@ -28,6 +28,23 @@ export default function BuyNowModule({ open, handleClose, first_name, price, img
     const [userInfo, setUserInfo] = React.useState(initialInfo);
 
 
+    // snackbar code
+    const [sOpen, setSOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setSOpen(true);
+    };
+
+    const handleSClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setSOpen(false);
+    };
+    // end of snackbar code
+
+
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -44,7 +61,7 @@ export default function BuyNowModule({ open, handleClose, first_name, price, img
         const placeOrder = {
             ...userInfo,
             mobileName: first_name,
-            img:img
+            img: img
         }
         // send data to the server
         // console.log(placeOrder)
@@ -61,7 +78,8 @@ export default function BuyNowModule({ open, handleClose, first_name, price, img
                 if (data.insertedId) {
                     // setBookingSuccess(true);
                     handleClose()
-                    alert('Your product Added')
+                    // alert('Your product Added')
+                    handleClick()
                 }
             })
         // console.log(placeOrder)
@@ -136,6 +154,13 @@ export default function BuyNowModule({ open, handleClose, first_name, price, img
                     </Box>
                 </Fade>
             </Modal>
+            {/* snackbar code */}
+            <Snackbar open={sOpen} autoHideDuration={2000} onClose={handleSClose}>
+                <Alert onClose={handleSClose} severity="success" sx={{ width: '100%' }}>
+                   You Product added our Delivery list
+                </Alert>
+            </Snackbar>
+            {/* end of snackbar code */}
         </div>
     );
 }

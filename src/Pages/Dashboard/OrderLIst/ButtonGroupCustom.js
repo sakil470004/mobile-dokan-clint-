@@ -2,10 +2,25 @@ import * as React from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { InputLabel } from '@mui/material';
+import { Alert, InputLabel, Snackbar } from '@mui/material';
 
 export default function ButtonGroupCustom({ action, id }) {
   const [newAction, setNewAction] = React.useState(action);
+  // snackbar code
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+  // end of snackbar code
 
   const handleChange = (event) => {
     // update action
@@ -23,9 +38,10 @@ export default function ButtonGroupCustom({ action, id }) {
       .then(data => {
         // console.log(data);
         if (data.modifiedCount) {
-          alert('Action Changed')
+          // alert('Action Changed')
           // setDataObserver(!dataObserver)
-        }else{
+          handleClick()
+        } else {
           alert('Something wrong when Action Changed')
 
         }
@@ -55,6 +71,13 @@ export default function ButtonGroupCustom({ action, id }) {
           <MenuItem value='ongoing'>On Going</MenuItem>
         </Select>
       </FormControl>
+            {/* snackbar code */}
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                    Action Changed
+                </Alert>
+            </Snackbar>
+            {/* end of snackbar code */}
     </div>
   );
 }

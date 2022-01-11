@@ -1,11 +1,26 @@
-import { Button, TextField } from '@mui/material'
+import { Alert,  Snackbar, TextField } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useRef, useState } from 'react'
 
 export default function AddMobile() {
     const [product, setProduct] = useState({})
     const form = useRef(null)
+    // snackbar code
+    const [open, setOpen] = React.useState(false);
 
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    // end of snackbar code
 
     const handleOnBlur = e => {
         const field = e.target.name;
@@ -29,7 +44,9 @@ export default function AddMobile() {
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('Product Added')
+                    // alert('Product Added')
+                    handleClick()
+
                     form.current.reset();
                 }
             })
@@ -118,7 +135,16 @@ export default function AddMobile() {
 
                     style={{ width: '75%', backgroundColor: '#FFDA00', color: 'black', padding: '10px', borderRadius: '15px', cursor: 'pointer' }} type='submit'>Add Product</button>
 
+
+
             </form>
+                {/* snackbar code */}
+                <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+                        Product Added
+                    </Alert>
+                </Snackbar>
+                {/* end of snackbar code */}
         </Box>
     )
 }
