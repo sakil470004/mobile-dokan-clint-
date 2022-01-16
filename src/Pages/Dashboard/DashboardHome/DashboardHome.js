@@ -43,6 +43,9 @@ export default function DashboardHome() {
                         </Grid>
                     ))}
                 </Grid>
+                    { !products.length && <h1>Please give some order and check here</h1>
+                        
+                    }
 
             </Container>
         </Box>
