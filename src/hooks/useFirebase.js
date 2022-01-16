@@ -1,5 +1,5 @@
 import initializeFirebase from "../Pages/Login/Firebase/firebase.init";
-import { getAuth,  onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup,getIdToken } from "firebase/auth";
+import { getAuth,  onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup,getIdToken, updateProfile, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 
 // initialize firebase app
@@ -15,52 +15,52 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
-    // const registerUser = (email, password, name, history) => {
-    //     setIsLoading(true)
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             // Signed in 
-    //             const newUser = { email, displayName: name };
-    //             setUser(newUser);
-    //             //save user to database 
-    //             saveUser(email, name, 'POST');
+    const registerUser = (email, password, name, history) => {
+        setIsLoading(true)
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                //save user to database 
+                saveUser(email, name, 'POST');
 
-    //             //  send name to firebase after creation
-    //             updateProfile(auth.currentUser, {
-    //                 displayName: name
-    //             }).then(() => {
-    //                 // Profile updated!
-    //                 // ...
-    //             }).catch((error) => {
-    //                 // An error occurred
-    //                 // ...
-    //             });
+                //  send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
 
-    //             setAuthError('');
-    //             history.replace('/');
+                setAuthError('');
+                history.replace('/');
 
-    //         })
-    //         .catch((error) => {
-    //             setAuthError(error.message);
-    //         }).finally(() => setIsLoading(false));
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            }).finally(() => setIsLoading(false));
 
-    // }
+    }
 
-    // const loginUser = (email, password, location, history) => {
-    //     setIsLoading(true)
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             // Signed in 
-    //             // redirect
-    //             const destination = location.state?.from || '/';
-    //             history.replace(destination);
-    //             setAuthError('');
-    //         })
-    //         .catch((error) => {
-    //             setAuthError(error.message);
-    //         }).finally(() => setIsLoading(false));
+    const loginUser = (email, password, location, history) => {
+        setIsLoading(true)
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                // redirect
+                const destination = location.state?.from || '/';
+                history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            }).finally(() => setIsLoading(false));
 
-    // }
+    }
 
     const signInWithGoogle = (location, history) => {
         setIsLoading(true)
@@ -143,8 +143,8 @@ const useFirebase = () => {
         token,
         isLoading,
         authError,
-        // registerUser,
-        // loginUser,
+        registerUser,
+        loginUser,
         signInWithGoogle,
         logout,
 

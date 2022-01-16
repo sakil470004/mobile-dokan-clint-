@@ -15,6 +15,7 @@ import AllProduct from './Pages/AllProduct/AllProduct';
 import ShowProductDetails from './Pages/ShowProductDetails/ShowProductDetails';
 import PrivateRoute from './Pages/Login/Firebase/PrivateRoute'
 import Dashboard from './Pages/Dashboard/DashBoard';
+import Register from './Pages/Login/Login/Register';
 
 
 
@@ -35,6 +36,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
             </Route>
             <Route path="/allProduct">
               <AllProduct />

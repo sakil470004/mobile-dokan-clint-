@@ -112,32 +112,32 @@ export default function NavigationTop() {
                             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
 
-                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/home'>
+                                <NavLink style={{ color: 'black', textDecoration: 'none',marginRight:'10px' }} to='/home'>
                                     <Button color="inherit"  >Home</Button>
                                 </NavLink>
 
 
-                                <HashLink smooth={true} style={{ color: 'black', textDecoration: 'none' }} to='/home#products'>
+                                <HashLink smooth={true} style={{ color: 'black', textDecoration: 'none',marginRight:'10px' }} to='/home#products'>
                                     <Button color="inherit"  >Products</Button>
                                 </HashLink>
 
                                 <HashLink smooth={true}
 
-                                    style={{ color: 'black', textDecoration: 'none' }} to='/home#reviewWeGot'>
+                                    style={{ color: 'black', textDecoration: 'none',marginRight:'10px' }} to='/home#reviewWeGot'>
                                     <Button color="inherit"  >Review</Button>
                                 </HashLink>
-                                <NavLink style={{ color: 'black', textDecoration: 'none' }} to='/dashboard'>
+                                <NavLink style={{ color: 'black', textDecoration: 'none',marginRight:'10px' }} to='/dashboard'>
                                     <Button color="inherit"  >Dashboard</Button>
                                 </NavLink>
 
                                 {!user?.displayName
-                                    && <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' }} to='/login'>
+                                    && <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px',marginRight:'10px' }} to='/login'>
                                         <Button color="inherit"  >Login</Button>
                                     </NavLink>
                                 }
 
                                 {user?.displayName &&
-                                    <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' }} to='/login'>
+                                    <NavLink style={{ color: 'black', backgroundColor: '#FFDA00', textDecoration: 'none', borderRadius: '10px' ,marginRight:'10px'}} to='/login'>
                                         <Button
                                             onClick={logout}
                                             color="inherit"  >Logout</Button>
