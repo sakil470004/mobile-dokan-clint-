@@ -2,15 +2,13 @@ import { Box, Container, Grid, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import Review from '../Review/Review'
 
-export default function CustomerReview({
-    //  comments, setComments, isCommentChange 
-}) {
+export default function CustomerReview() {
     const [reviews, setReviews] = useState([])
 
 
 
     useEffect(() => {
-        fetch('https://mobile-dokan-server.herokuapp.com/reviews')
+        fetch('http://localhost:5000/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

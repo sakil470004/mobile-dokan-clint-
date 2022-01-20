@@ -8,7 +8,7 @@ export default function Products() {
     const [mobiles, setMobiles] = useState([]);
 
     useEffect(() => {
-        fetch('https://mobile-dokan-server.herokuapp.com/products')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 data = data.slice(0, 8);

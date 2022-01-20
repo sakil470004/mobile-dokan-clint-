@@ -34,7 +34,7 @@ export default function MakeAdmin() {
     const handleAdminSubmit = e => {
         // need lowerCase for server understand
         const user = { email: email.toLocaleLowerCase() }
-        fetch('https://mobile-dokan-server.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

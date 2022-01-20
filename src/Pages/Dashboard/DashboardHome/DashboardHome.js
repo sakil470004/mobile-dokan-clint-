@@ -17,7 +17,7 @@ export default function DashboardHome() {
     const { user } = useAuth()
     useEffect(() => {
 
-        fetch(`https://mobile-dokan-server.herokuapp.com/userProducts?email=${user.email}`)
+        fetch(`http://localhost:5000/userProducts?email=${user.email}`)
             .then(res => res.json())
             .then(data => setProducts(data));
 
