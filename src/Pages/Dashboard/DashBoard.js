@@ -27,6 +27,7 @@ import OrderList from './OrderLIst/OrderLIst';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import SendReview from './SendReview/SendReview';
+import RemoveProduct from './RemoveProduct/RemoveProduct';
 
 const drawerWidth = 150;
 
@@ -65,6 +66,7 @@ function Dashboard(props) {
                     <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Order List')} >Order List</Button></Link>
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Make Admin')}>Make Admin</Button></Link>
                     <Link to={`${url}/addProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Add Mobile')}>Add Mobile</Button></Link>
+                    <Link to={`${url}/removeProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Remove Mobile')}>Remove Mobile</Button></Link>
                 </Box>}
             </Box>
 
@@ -154,6 +156,9 @@ function Dashboard(props) {
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProduct`}>
                         <AddMobile />
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/removeProduct`}>
+                        <RemoveProduct />
                     </AdminRoute>
                 </Switch>
 
