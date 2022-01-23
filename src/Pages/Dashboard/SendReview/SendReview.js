@@ -35,7 +35,7 @@ export default function SendReview() {
     const handleAddReview = (e) => {
         const newInfo = { ...review, name: user.displayName };
         // send data to the server
-        fetch('http://localhost:5000/review', {
+        fetch('https://mobile-dokan-server.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

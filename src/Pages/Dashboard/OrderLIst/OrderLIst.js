@@ -15,7 +15,7 @@ export default function OrderList() {
     const [carts, setCarts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/carts')
+        fetch('https://mobile-dokan-server.herokuapp.com/carts')
             .then(res => res.json())
             .then(data => {
                 setCarts(data)

@@ -6,9 +6,9 @@ export default function RemoveProduct() {
 
 
     const handleRemove = id => {
-        if (window.confirm("Press a button!") === true) {
+        if (window.confirm("Are You Sure Want to Delete Mobile") === true) {
 
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `https://mobile-dokan-server.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -17,15 +17,14 @@ export default function RemoveProduct() {
                     // console.log(data)
 
                     if (data.deletedCount) {
-                        alert('deleted')
+                        alert('Deleted')
                         const remaining = products.filter(food => food._id !== id);
                         setProducts(remaining)
                     }
                 })
 
-            alert('Deleted')
         } else {
-            alert('Deleted Cencle')
+            alert('Deleted cancel')
 
         }
 
@@ -33,7 +32,7 @@ export default function RemoveProduct() {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://mobile-dokan-server.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
 
