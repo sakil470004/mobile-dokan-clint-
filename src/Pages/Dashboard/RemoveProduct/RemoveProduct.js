@@ -8,7 +8,7 @@ export default function RemoveProduct() {
     const handleRemove = id => {
         if (window.confirm("Are You Sure Want to Delete Mobile") === true) {
 
-            const url = `https://mobile-dokan-server.herokuapp.com/products/${id}`;
+            const url = `https://mobile-dokan-api.herokuapp.com/products/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -32,7 +32,7 @@ export default function RemoveProduct() {
     }
 
     useEffect(() => {
-        fetch('https://mobile-dokan-server.herokuapp.com/products')
+        fetch('https://mobile-dokan-api.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
 

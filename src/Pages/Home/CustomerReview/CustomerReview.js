@@ -8,7 +8,7 @@ export default function CustomerReview() {
 
 
     useEffect(() => {
-        fetch('https://mobile-dokan-server.herokuapp.com/reviews')
+        fetch('https://mobile-dokan-api.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

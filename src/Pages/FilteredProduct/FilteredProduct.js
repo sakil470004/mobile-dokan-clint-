@@ -11,7 +11,7 @@ export default function FilteredProduct() {
     const [mobiles, setMobiles] = useState([]);
     let { currentStatus } = useParams();
     useEffect(() => {
-        fetch(`https://mobile-dokan-server.herokuapp.com/status/${currentStatus}`)
+        fetch(`https://mobile-dokan-api.herokuapp.com/status/${currentStatus}`)
             .then(res => res.json())
             .then(data => setMobiles(data))
 
