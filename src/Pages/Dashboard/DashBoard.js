@@ -62,9 +62,9 @@ function Dashboard(props) {
                 <Link to={`${url}/sendReview`} style={{ textDecoration: 'none' }}><Button color="inherit">Send Review</Button></Link>
                 <br />
                 <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('My Order')}>My Order</Button></Link>
-               
-                 
-               {/* comment for the time being */}
+
+
+                {/* comment for the time being */}
                 {/* {admin &&  */}
                 <Box>
                     <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Order List')} >Order List</Button></Link>
@@ -73,6 +73,9 @@ function Dashboard(props) {
                     {/* <Link to={`${url}/removeProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Remove Mobile')}>Remove Mobile</Button></Link> */}
                 </Box>
                 {/* } */}
+                <Box>
+                    <br />
+                    Note :Admin Open for the Time Being Critical Remove Option Hide for Now</Box>
             </Box>
 
         </div>
@@ -152,7 +155,7 @@ function Dashboard(props) {
                     <Route path={`${path}/sendReview`}>
                         <SendReview />
                     </Route>
-                        {/* change ing adminRoute to route */}
+                    {/* change ing adminRoute to route */}
                     <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin />
                     </Route>
