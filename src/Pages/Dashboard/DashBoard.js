@@ -62,12 +62,17 @@ function Dashboard(props) {
                 <Link to={`${url}/sendReview`} style={{ textDecoration: 'none' }}><Button color="inherit">Send Review</Button></Link>
                 <br />
                 <Link to={`${url}`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('My Order')}>My Order</Button></Link>
-                {admin && <Box>
+               
+                 
+               {/* comment for the time being */}
+                {/* {admin &&  */}
+                <Box>
                     <Link to={`${url}/orderList`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Order List')} >Order List</Button></Link>
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Make Admin')}>Make Admin</Button></Link>
                     <Link to={`${url}/addProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Add Mobile')}>Add Mobile</Button></Link>
-                    <Link to={`${url}/removeProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Remove Mobile')}>Remove Mobile</Button></Link>
-                </Box>}
+                    {/* <Link to={`${url}/removeProduct`} style={{ textDecoration: 'none' }}><Button color="inherit" onClick={() => handleDrawerName('Remove Mobile')}>Remove Mobile</Button></Link> */}
+                </Box>
+                {/* } */}
             </Box>
 
         </div>
@@ -147,19 +152,19 @@ function Dashboard(props) {
                     <Route path={`${path}/sendReview`}>
                         <SendReview />
                     </Route>
-
-                    <AdminRoute path={`${path}/makeAdmin`}>
+                        {/* change ing adminRoute to route */}
+                    <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin />
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/orderList`}>
+                    </Route>
+                    <Route path={`${path}/orderList`}>
                         <OrderList />
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addProduct`}>
+                    </Route>
+                    <Route path={`${path}/addProduct`}>
                         <AddMobile />
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/removeProduct`}>
+                    </Route>
+                    {/* <Route path={`${path}/removeProduct`}>
                         <RemoveProduct />
-                    </AdminRoute>
+                    </Route> */}
                 </Switch>
 
             </Box>
