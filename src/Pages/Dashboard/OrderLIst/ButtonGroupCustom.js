@@ -27,7 +27,7 @@ export default function ButtonGroupCustom({ action, id }) {
     setNewAction(event.target.value);
     const user = { id, action: event.target.value }
     // console.log(event.target.value)
-    fetch('https://mobile-dokan-api.herokuapp.com/carts/action', {
+    fetch('https://mobile-dokan-server-indol.vercel.app/carts/action', {
       method: 'PUT',
       headers: {
         'content-type': 'application/json'

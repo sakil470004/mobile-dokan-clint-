@@ -65,7 +65,7 @@ export default function BuyNowModule({ open, handleClose, first_name, price, img
         }
         // send data to the server
         // console.log(placeOrder)
-        fetch('https://mobile-dokan-api.herokuapp.com/carts', {
+        fetch('https://mobile-dokan-server-indol.vercel.app/carts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

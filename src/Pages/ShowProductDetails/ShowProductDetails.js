@@ -22,7 +22,7 @@ export default function ShowProductDetails() {
 
 
     useEffect(() => {
-        const uri = `https://mobile-dokan-api.herokuapp.com/products/${productId}`;
+        const uri = `https://mobile-dokan-server-indol.vercel.app/products/${productId}`;
         // console.log(uri)
         fetch(uri)
             .then(res => res.json())

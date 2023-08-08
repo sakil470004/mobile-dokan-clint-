@@ -1,6 +1,12 @@
 import { initializeApp } from "firebase/app";
-import firebaseConfig from "./Firebase.config";
-
+const firebaseConfig = {
+    apiKey: "AIzaSyD28FW8xiD6dSU8smjmOR84dSKEe6ezsUU",
+    authDomain: "mobile-dokan-8f630.firebaseapp.com",
+    projectId: "mobile-dokan-8f630",
+    storageBucket: "mobile-dokan-8f630.appspot.com",
+    messagingSenderId: "1093529214400",
+    appId: "1:1093529214400:web:120d1f53e4551b3de53c25"
+  };
 // Initialize Firebase
 const initializeFirebase = () => {
     initializeApp(firebaseConfig);

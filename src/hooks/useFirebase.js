@@ -103,7 +103,7 @@ const useFirebase = () => {
     // observe user admin or not
     useEffect(() => {
         setIsLoading(true)
-        fetch(`https://mobile-dokan-api.herokuapp.com/users/${user.email}`)
+        fetch(`https://mobile-dokan-server-indol.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -127,7 +127,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://mobile-dokan-api.herokuapp.com/users', {
+        fetch('https://mobile-dokan-server-indol.vercel.app/users', {
             method: `${method}`,
             headers: {
                 'content-type': 'application/json'

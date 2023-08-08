@@ -15,7 +15,7 @@ export default function OrderList() {
     const [carts, setCarts] = useState([]);
 
     useEffect(() => {
-        fetch('https://mobile-dokan-api.herokuapp.com/carts')
+        fetch('https://mobile-dokan-server-indol.vercel.app/carts')
             .then(res => res.json())
             .then(data => {
                 setCarts(data)
